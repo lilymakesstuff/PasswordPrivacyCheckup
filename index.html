@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#f4f6fb">
     <title>Password and Privacy Checkup</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -30,12 +31,30 @@
         <p class="card-copy">[PLACEHOLDER: Checklist instructions go here.]</p>
 
         <ul class="checklist">
-          <li class="checklist-item">
+          <li class="checklist-item checklist-item--qr">
             <label class="item-label" for="task-1">
               <input class="task-checkbox" id="task-1" type="checkbox">
               <span class="item-title">[PLACEHOLDER: Checklist item 1]</span>
             </label>
-            <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 1] <span aria-hidden="true">↗</span></a>
+            <section class="qr-item" aria-labelledby="qr-item-title">
+              <h2 id="qr-item-title">Create a QR code for this item</h2>
+              <p class="qr-description">Paste a web link to encode in the QR code.</p>
+              <form class="qr-form" id="qr-form">
+                <label class="qr-label" for="qr-url">Link to encode</label>
+                <div class="qr-controls">
+                  <input id="qr-url" name="url" type="url" inputmode="url" maxlength="2048" placeholder="https://example.com" required>
+                  <button class="primary-button" type="submit">Generate QR code</button>
+                </div>
+              </form>
+              <div class="qr-result" id="qr-result" hidden>
+                <div class="qr-container" id="qr-container"></div>
+                <div class="qr-actions">
+                  <a class="resource-link" id="qr-target-link" target="_blank" rel="noopener noreferrer"></a>
+                  <a class="download-link" id="download-qr" download="checklist-item-1-qr.svg">Download QR code</a>
+                </div>
+              </div>
+              <p class="qr-status" id="qr-status" role="status" aria-live="polite"></p>
+            </section>
           </li>
           <li class="checklist-item">
             <label class="item-label" for="task-2">
@@ -60,23 +79,6 @@
           </li>
         </ul>
 
-        <section class="invite-card" aria-labelledby="invite-title">
-          <h2 id="invite-title">Invite someone</h2>
-          <p class="card-copy">Send someone a link to this checkup.</p>
-          <form id="invite-form">
-            <label class="invite-label" for="invite-email">Their email address</label>
-            <div class="invite-controls">
-              <input id="invite-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-              <button class="primary-button" id="invite-button" type="submit">Send invite</button>
-            </div>
-            <div class="invite-trap" aria-hidden="true">
-              <label for="invite-website">Leave this field empty</label>
-              <input id="invite-website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <p class="invite-disclosure">Their address will be sent to Brevo to deliver the invitation.</p>
-            <p class="invite-status" id="invite-status" role="status" aria-live="polite"></p>
-          </form>
-        </section>
       </section>
     </main>
 

@@ -4,12 +4,14 @@ const checkup = document.querySelector("#checkup");
 const checkupTitle = document.querySelector("#checkup-title");
 const completionCard = document.querySelector("#completion-card");
 const taskCheckboxes = [...document.querySelectorAll(".task-checkbox")];
-const inviteForm = document.querySelector("#invite-form");
-const inviteEmail = document.querySelector("#invite-email");
-const inviteWebsite = document.querySelector("#invite-website");
-const inviteButton = document.querySelector("#invite-button");
-const inviteStatus = document.querySelector("#invite-status");
-const INVITE_API_URL = "https://YOUR-VERCEL-DEPLOYMENT.vercel.app/api/send-invite";
+const qrForm = document.querySelector("#qr-form");
+const qrUrlInput = document.querySelector("#qr-url");
+const qrContainer = document.querySelector("#qr-container");
+const qrResult = document.querySelector("#qr-result");
+const qrTargetLink = document.querySelector("#qr-target-link");
+const downloadQrLink = document.querySelector("#download-qr");
+const qrStatus = document.querySelector("#qr-status");
+let qrObjectUrl = "";
 
 beginButton.addEventListener("click", () => {
   welcomeCard.hidden = true;
@@ -25,44 +27,51 @@ taskCheckboxes.forEach((checkbox) => {
   });
 });
 
-inviteForm.addEventListener("submit", async (event) => {
+qrForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  inviteStatus.textContent = "";
-  inviteStatus.dataset.state = "";
+  qrStatus.textContent = "";
+  qrStatus.dataset.state = "";
+  qrResult.hidden = true;
+  qrContainer.replaceChildren();
 
-  if (INVITE_API_URL.includes("YOUR-VERCEL-DEPLOYMENT")) {
-    inviteStatus.textContent = "Email invites are not connected yet. Add your Vercel function URL in script.js.";
-    inviteStatus.dataset.state = "error";
+  if (qrObjectUrl) {
+    URL.revokeObjectURL(qrObjectUrl);
+    qrObjectUrl = "";
+  }
+
+  if (typeof window.qrcode !== "function") {
+    qrStatus.textContent = "The QR code generator could not be loaded. Please try again later.";
+    qrStatus.dataset.state = "error";
     return;
   }
 
-  inviteButton.disabled = true;
-  inviteButton.textContent = "Sending…";
-  inviteStatus.textContent = "Sending invitation…";
-
   try {
-    const response = await fetch(INVITE_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: inviteEmail.value.trim(),
-        website: inviteWebsite.value,
-      }),
-    });
-    const result = await response.json();
-
-    if (!response.ok) {
-      throw new Error(result.error || "The invitation could not be sent. Please try again.");
+    const targetUrl = new URL(qrUrlInput.value.trim());
+    if (targetUrl.protocol !== "https:" && targetUrl.protocol !== "http:") {
+      qrStatus.textContent = "Enter a link that starts with http:// or https://.";
+      qrStatus.dataset.state = "error";
+      return;
     }
 
-    inviteForm.reset();
-    inviteStatus.textContent = "Invitation sent.";
+    const qrCode = window.qrcode(0, "M");
+    qrCode.addData(targetUrl.href);
+    qrCode.make();
+
+    const svgBlob = new Blob([qrCode.createSvgTag(5, 4)], { type: "image/svg+xml" });
+    qrObjectUrl = URL.createObjectURL(svgBlob);
+
+    const image = new Image();
+    image.alt = `QR code for ${targetUrl.href}`;
+    image.src = qrObjectUrl;
+    qrContainer.append(image);
+    qrTargetLink.href = targetUrl.href;
+    qrTargetLink.textContent = `Open ${targetUrl.hostname}`;
+    downloadQrLink.href = qrObjectUrl;
+    qrResult.hidden = false;
+    qrStatus.textContent = `QR code generated for ${targetUrl.href}`;
   } catch (error) {
-    console.error("Could not send invitation:", error);
-    inviteStatus.textContent = error.message || "The invitation could not be sent. Please try again.";
-    inviteStatus.dataset.state = "error";
-  } finally {
-    inviteButton.disabled = false;
-    inviteButton.textContent = "Send invite";
+    console.error("Could not generate the QR code:", error);
+    qrStatus.textContent = "Could not generate a QR code for that link. Check the URL and try again.";
+    qrStatus.dataset.state = "error";
   }
 });
