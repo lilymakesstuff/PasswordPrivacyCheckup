@@ -37,9 +37,10 @@
 
         <div class="task-list">
           <section class="task-section" aria-labelledby="task-1-title">
-            <h2 id="task-1-title">1. Account Safety Checks</h2>
+            <h2 id="task-1-title" tabindex="-1">1. Account Safety Checks</h2>
             <p class="section-description">Your major accounts need regular safety checks. This is usually as simple as confirming your email and address are current. Keeping this up to date helps prevent any safety issues!</p>
-            <ul class="activity-list">
+            <div class="section-content" hidden>
+              <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
                   <label class="item-label" for="task-1">
@@ -111,13 +112,15 @@
                   </ol>
                 </details>
               </li>
-            </ul>
+              </ul>
+            </div>
           </section>
 
           <section class="task-section" aria-labelledby="task-2-title">
-            <h2 id="task-2-title">2. Spam Protection</h2>
+            <h2 id="task-2-title" tabindex="-1">2. Spam Protection</h2>
             <p class="section-description">Everyone gets spam... but you can get less of it!</p>
-            <ul class="activity-list">
+            <div class="section-content" hidden>
+              <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
                   <label class="item-label" for="task-3">
@@ -164,13 +167,15 @@
                   </ol>
                 </details>
               </li>
-            </ul>
+              </ul>
+            </div>
           </section>
 
           <section class="task-section" aria-labelledby="task-3-title">
-            <h2 id="task-3-title">3. Removing Logged-in Devices</h2>
+            <h2 id="task-3-title" tabindex="-1">3. Removing Logged-in Devices</h2>
             <p class="section-description">It's important to review where your email is being used, and update regularly.</p>
-            <ul class="activity-list">
+            <div class="section-content" hidden>
+              <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
                   <label class="item-label" for="task-5">
@@ -222,13 +227,15 @@
                   </ol>
                 </details>
               </li>
-            </ul>
+              </ul>
+            </div>
           </section>
 
           <section class="task-section" aria-labelledby="task-4-title">
-            <h2 id="task-4-title">4. Setting up MFA on your email</h2>
+            <h2 id="task-4-title" tabindex="-1">4. Setting up MFA on your email</h2>
             <p class="section-description"><strong>What is MFA?</strong> Multi-factor authentication adds an extra layer of security to your account. It usually connects to your phone number or a security key.</p>
-            <ul class="activity-list">
+            <div class="section-content" hidden>
+              <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
                   <label class="item-label" for="task-7">
@@ -296,9 +303,15 @@
                   </ol>
                 </details>
               </li>
-            </ul>
+              </ul>
+            </div>
           </section>
         </div>
+        <nav class="section-navigation" aria-label="Section navigation">
+          <button class="secondary-button" id="back-button" type="button" hidden>Back</button>
+          <button class="primary-button" id="okay-button" type="button">Okay</button>
+          <button class="primary-button" id="next-section-button" type="button" hidden>I'm done!</button>
+        </nav>
         <p class="safety-note">You can choose which activities to do. Ask us if you get stuck, and never show staff your passwords or confidential information.</p>
       </section>
     </main>
@@ -306,7 +319,7 @@
     <dialog class="completion-card" id="completion-card" aria-labelledby="completion-title">
       <p class="eyebrow">Checkup complete</p>
       <h2 id="completion-title">Great work!</h2>
-      <p class="card-copy">You’ve checked off all eight activities. You can close this page or review any of the steps again.</p>
+      <p class="card-copy">You’ve reached the end of the checkup. You can close this page or review any of the steps again.</p>
       <form method="dialog">
         <button class="primary-button" type="submit">Close</button>
       </form>

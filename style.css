@@ -132,7 +132,23 @@ h2 {
   background: #354bd0;
 }
 
+.secondary-button {
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+  color: #17233c;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.secondary-button:hover {
+  background: #f4f6fb;
+}
+
 .primary-button:focus-visible,
+.secondary-button:focus-visible,
 .resource-link:focus-visible,
 .brand:focus-visible,
 .task-checkbox:focus-visible {
@@ -144,6 +160,14 @@ h2 {
   display: grid;
   gap: 32px;
   margin-top: 32px;
+}
+
+.section-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .task-section h2 {
