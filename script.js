@@ -8,8 +8,6 @@ const qrForm = document.querySelector("#qr-form");
 const qrUrlInput = document.querySelector("#qr-url");
 const qrContainer = document.querySelector("#qr-container");
 const qrResult = document.querySelector("#qr-result");
-const qrTargetLink = document.querySelector("#qr-target-link");
-const downloadQrLink = document.querySelector("#download-qr");
 const qrStatus = document.querySelector("#qr-status");
 let qrObjectUrl = "";
 
@@ -64,9 +62,6 @@ qrForm.addEventListener("submit", (event) => {
     image.alt = `QR code for ${targetUrl.hostname}`;
     image.src = qrObjectUrl;
     qrContainer.append(image);
-    qrTargetLink.href = targetUrl.href;
-    qrTargetLink.textContent = `Open ${targetUrl.hostname}`;
-    downloadQrLink.href = qrObjectUrl;
     qrResult.hidden = false;
     qrStatus.textContent = `QR code generated for ${targetUrl.hostname}.`;
   } catch (error) {

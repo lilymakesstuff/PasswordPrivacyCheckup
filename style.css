@@ -134,7 +134,6 @@ h2 {
 
 .primary-button:focus-visible,
 .resource-link:focus-visible,
-.download-link:focus-visible,
 .brand:focus-visible,
 .task-checkbox:focus-visible {
   outline: 3px solid #aeb9ff;
@@ -373,22 +372,11 @@ h2 {
   height: 100%;
 }
 
-.qr-actions {
-  display: grid;
-  gap: 8px;
-}
-
-.download-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--color-accent);
+.qr-scan-instruction {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
   font-weight: 650;
-  text-decoration: none;
-}
-
-.download-link:hover {
-  text-decoration: underline;
 }
 
 .qr-status {
