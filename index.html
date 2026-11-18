@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#f4f6fb">
     <title>Password and Privacy Checkup</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -18,31 +19,51 @@
 
     <main class="page-content">
       <section class="welcome-card" id="welcome-card" aria-labelledby="welcome-title">
-        <p class="eyebrow">Osceola Library</p>
+        <p class="eyebrow">November 18, 2026</p>
         <h1 id="welcome-title">Welcome!</h1>
-        <p class="card-copy">This checkup has four tasks to help secure your devices and accounts. Choose the activities that are relevant to you and work at your own pace. The checkup guide is for use at the Library; the other handouts are yours to keep. Ask us if you need help, but never share your passwords or confidential information. You can also book a tech appointment on the Osceola Library website.</p>
+        <ol class="welcome-instructions">
+          <li>Take a seat anywhere with a GO sign!</li>
+          <li>The checkup instructions stay here. The packet of handouts you may take with you!</li>
+          <li>Work through the checkups at your own pace. We can help you!</li>
+          <li>When you leave, flip the GO sign to a STOP sign on your computer station!</li>
+        </ol>
         <button class="primary-button" id="begin-button" type="button">Start checkup</button>
       </section>
 
       <section class="checkup" id="checkup" aria-labelledby="checkup-title" hidden>
-        <p class="eyebrow">Your checklist</p>
+        <p class="eyebrow">To do Today</p>
         <h1 id="checkup-title" tabindex="-1">Password and Privacy Checkup</h1>
-        <p class="card-copy">Each task has one activity for this computer and one for your phone. The computer activities link to resources; their descriptions are placeholders. Follow the phone guide that matches your device or account, and check off activities as you complete them. You only need to do what is relevant to you.</p>
+        <p class="card-copy">Follow the guide that matches your device or account, and check off activities as you complete them. You only need to do what is relevant to you, and you may have some of these already done.</p>
 
         <div class="task-list">
           <section class="task-section" aria-labelledby="task-1-title">
-            <h2 id="task-1-title">1. Account safety checks</h2>
+            <h2 id="task-1-title">1. Check up on your account security</h2>
             <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
                   <label class="item-label" for="task-1">
                     <input class="task-checkbox" id="task-1" type="checkbox">
-                    <span class="item-title">[Activity title placeholder]</span>
+                    <span class="item-title">Take a quiz and get a personalized security report</span>
                   </label>
                   <span class="activity-location">On this computer</span>
                 </div>
                 <p><a class="resource-link" href="https://securityplanner.consumerreports.org/" target="_blank" rel="noopener noreferrer">Consumer Reports Security Planner <span aria-hidden="true">↗</span></a></p>
-                <p class="activity-description">[Description placeholder]</p>
+                <p class="activity-description">When you're done, if you would like to save your report, paste the link here and scan the code with your phone.</p>
+                <form class="qr-form" id="qr-form">
+                  <label class="qr-label" for="qr-url">Paste your report link</label>
+                  <div class="qr-controls">
+                    <input id="qr-url" name="url" type="url" inputmode="url" maxlength="2048" placeholder="Paste your report link here" required>
+                    <button class="primary-button" type="submit">Generate QR code</button>
+                  </div>
+                </form>
+                <div class="qr-result" id="qr-result" hidden>
+                  <div class="qr-container" id="qr-container"></div>
+                  <div class="qr-actions">
+                    <a class="resource-link" id="qr-target-link" target="_blank" rel="noopener noreferrer"></a>
+                    <a class="download-link" id="download-qr" download="security-report-qr.svg">Download QR code</a>
+                  </div>
+                </div>
+                <p class="qr-status" id="qr-status" role="status" aria-live="polite"></p>
               </li>
               <li class="activity-card">
                 <div class="activity-heading">
@@ -122,7 +143,7 @@
                   <span class="activity-location">On this computer</span>
                 </div>
                 <p><a class="resource-link" href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned <span aria-hidden="true">↗</span></a></p>
-                <p class="activity-note">An email being compromised does NOT equal being hacked.</p>
+                <p class="activity-note">Heads up! If your email has been in a breach, it doesn't mean your account has been hacked. It does mean you might want to change your password.</p>
                 <p class="activity-description">[Description placeholder]</p>
               </li>
               <li class="activity-card">
