@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#f4f6fb">
     <title>Password and Privacy Checkup</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -19,76 +18,182 @@
 
     <main class="page-content">
       <section class="welcome-card" id="welcome-card" aria-labelledby="welcome-title">
-        <p class="eyebrow">November 17, 2026</p>
+        <p class="eyebrow">Osceola Library</p>
         <h1 id="welcome-title">Welcome!</h1>
-        <p class="card-copy">[PLACEHOLDER: Welcome and tutorial text goes here.]</p>
-        <button class="primary-button" id="begin-button" type="button">OK</button>
+        <p class="card-copy">This checkup has four tasks to help secure your devices and accounts. Choose the activities that are relevant to you and work at your own pace. The checkup guide is for use at the Library; the other handouts are yours to keep. Ask us if you need help, but never share your passwords or confidential information. You can also book a tech appointment on the Osceola Library website.</p>
+        <button class="primary-button" id="begin-button" type="button">Start checkup</button>
       </section>
 
       <section class="checkup" id="checkup" aria-labelledby="checkup-title" hidden>
-        <p class="eyebrow">[PLACEHOLDER: Checklist label]</p>
-        <h1 id="checkup-title" tabindex="-1">[PLACEHOLDER: Checklist title]</h1>
-        <p class="card-copy">[PLACEHOLDER: Checklist instructions go here.]</p>
+        <p class="eyebrow">Your checklist</p>
+        <h1 id="checkup-title" tabindex="-1">Password and Privacy Checkup</h1>
+        <p class="card-copy">Each task has one activity for this computer and one for your phone. The computer activities are intentionally blank. Follow the phone guide that matches your device or account, and check off activities as you complete them. You only need to do what is relevant to you.</p>
 
-        <ul class="checklist">
-          <li class="checklist-item checklist-item--qr">
-            <label class="item-label" for="task-1">
-              <input class="task-checkbox" id="task-1" type="checkbox">
-              <span class="item-title">Task 1</span>
-            </label>
-            <section class="qr-item" aria-labelledby="qr-item-title">
-              <h2 id="qr-item-title">Consumer Reports Safety Checklist</h2>
-              <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 2] <span aria-hidden="true">↗</span></a>
-              <p class="qr-description"> If you want to keep your safety checklist, you can copy the link in the browser and paste it here.</p>
-              <form class="qr-form" id="qr-form">
-                <label class="qr-label" for="qr-url">Paste the link in after you're done and scan with your phone!</label>
-                <div class="qr-controls">
-                  <input id="qr-url" name="url" type="url" inputmode="url" maxlength="2048" placeholder="https://example.com" required>
-                  <button class="primary-button" type="submit">Generate QR code</button>
+        <div class="task-list">
+          <section class="task-section" aria-labelledby="task-1-title">
+            <h2 id="task-1-title">1. Account safety checks</h2>
+            <ul class="activity-list">
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-1">
+                    <input class="task-checkbox" id="task-1" type="checkbox" aria-label="On this computer activity">
+                  </label>
+                  <span class="activity-location">On this computer</span>
                 </div>
-              </form>
-              <div class="qr-result" id="qr-result" hidden>
-                <div class="qr-container" id="qr-container"></div>
-                <div class="qr-actions">
-                  <a class="resource-link" id="qr-target-link" target="_blank" rel="noopener noreferrer"></a>
-                  <a class="download-link" id="download-qr" download="checklist-item-1-qr.svg">Download QR code</a>
+              </li>
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-2">
+                    <input class="task-checkbox" id="task-2" type="checkbox">
+                    <span class="item-title">Check your account safety on your phone</span>
+                  </label>
+                  <span class="activity-location">On your phone</span>
                 </div>
-              </div>
-              <p class="qr-status" id="qr-status" role="status" aria-live="polite"></p>
-            </section>
-          </li>
-          <li class="checklist-item">
-            <label class="item-label" for="task-2">
-              <input class="task-checkbox" id="task-2" type="checkbox">
-              <span class="item-title">[PLACEHOLDER: Checklist item 2]</span>
-            </label>
-            <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 2] <span aria-hidden="true">↗</span></a>
-          </li>
-          <li class="checklist-item">
-            <label class="item-label" for="task-3">
-              <input class="task-checkbox" id="task-3" type="checkbox">
-              <span class="item-title">[PLACEHOLDER: Checklist item 3]</span>
-            </label>
-            <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 3] <span aria-hidden="true">↗</span></a>
-          </li>
-          <li class="checklist-item">
-            <label class="item-label" for="task-4">
-              <input class="task-checkbox" id="task-4" type="checkbox">
-              <span class="item-title">[PLACEHOLDER: Checklist item 4]</span>
-            </label>
-            <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 4] <span aria-hidden="true">↗</span></a>
-          </li>
-        </ul>
+                <details class="device-guide">
+                  <summary>I have a Google account</summary>
+                  <p>Open your browser and sign in to your personal Google account. Go to <a class="resource-link" href="https://myaccount.google.com/security-checkup" target="_blank" rel="noopener noreferrer">Google Security Checkup <span aria-hidden="true">↗</span></a>. A green shield means you’re all set. If it’s yellow or red, review Google’s recommended steps and ask for help if needed.</p>
+                </details>
+                <details class="device-guide">
+                  <summary>I have an iPhone (iOS 16 or later)</summary>
+                  <ol>
+                    <li>Open <strong>Settings</strong>, tap <strong>Privacy &amp; Security</strong>, then <strong>Safety Check</strong>.</li>
+                    <li>Authenticate, then tap <strong>Manage Sharing &amp; Access</strong>. Do not choose Emergency Reset.</li>
+                    <li>Review the people and apps with access to your information. Remove access only if you choose, then tap <strong>Done</strong>.</li>
+                  </ol>
+                </details>
+              </li>
+            </ul>
+          </section>
 
+          <section class="task-section" aria-labelledby="task-2-title">
+            <h2 id="task-2-title">2. Spam protection</h2>
+            <ul class="activity-list">
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-3">
+                    <input class="task-checkbox" id="task-3" type="checkbox" aria-label="On this computer activity">
+                  </label>
+                  <span class="activity-location">On this computer</span>
+                </div>
+              </li>
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-4">
+                    <input class="task-checkbox" id="task-4" type="checkbox">
+                    <span class="item-title">Review spam-call settings on your phone</span>
+                  </label>
+                  <span class="activity-location">On your phone</span>
+                </div>
+                <details class="device-guide">
+                  <summary>I have an iPhone</summary>
+                  <ol>
+                    <li>Open <strong>Settings</strong>, then tap <strong>Apps</strong> and <strong>Phone</strong>.</li>
+                    <li>Scroll to <strong>Call Filtering</strong> and turn on the spam filter if you want to use it.</li>
+                    <li>To view spam calls, open the Phone app, tap <strong>Filter</strong>, then <strong>Spam</strong>. The tab may be called Recents or Calls depending on your view.</li>
+                  </ol>
+                </details>
+                <details class="device-guide">
+                  <summary>I have an Android phone</summary>
+                  <ol>
+                    <li>Open the Phone app, then its menu (often a gear, three dots, or three lines) and tap <strong>Settings</strong>.</li>
+                    <li>Tap <strong>Caller ID &amp; spam</strong> or <strong>Spam protection</strong>.</li>
+                    <li>Turn on <strong>Filter spam calls</strong> or other options if you want. Android menus vary, so ask for help if needed.</li>
+                  </ol>
+                </details>
+              </li>
+            </ul>
+          </section>
+
+          <section class="task-section" aria-labelledby="task-3-title">
+            <h2 id="task-3-title">3. Remove devices you no longer use</h2>
+            <ul class="activity-list">
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-5">
+                    <input class="task-checkbox" id="task-5" type="checkbox" aria-label="On this computer activity">
+                  </label>
+                  <span class="activity-location">On this computer</span>
+                </div>
+              </li>
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-6">
+                    <input class="task-checkbox" id="task-6" type="checkbox">
+                    <span class="item-title">Review devices signed in to your account</span>
+                  </label>
+                  <span class="activity-location">On your phone</span>
+                </div>
+                <details class="device-guide">
+                  <summary>I have a Google account</summary>
+                  <ol>
+                    <li>Open your browser and sign in to Google. Go to <a class="resource-link" href="https://myaccount.google.com/device-activity" target="_blank" rel="noopener noreferrer">Your devices <span aria-hidden="true">↗</span></a>, or open your account’s <strong>Security</strong> settings and choose <strong>Manage all devices</strong>.</li>
+                    <li>Review device names and last activity. Choose an unfamiliar or unused device, then select <strong>Sign out</strong>.</li>
+                  </ol>
+                </details>
+                <details class="device-guide">
+                  <summary>I have an iPhone</summary>
+                  <ol>
+                    <li>Open <strong>Settings</strong> and tap your name.</li>
+                    <li>Tap an unfamiliar or unused device in the list, then tap <strong>Remove from Account</strong> and confirm. Do not remove <strong>This iPhone</strong>.</li>
+                  </ol>
+                </details>
+              </li>
+            </ul>
+          </section>
+
+          <section class="task-section" aria-labelledby="task-4-title">
+            <h2 id="task-4-title">4. Set up two-step sign-in</h2>
+            <ul class="activity-list">
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-7">
+                    <input class="task-checkbox" id="task-7" type="checkbox" aria-label="On this computer activity">
+                  </label>
+                  <span class="activity-location">On this computer</span>
+                </div>
+              </li>
+              <li class="activity-card">
+                <div class="activity-heading">
+                  <label class="item-label" for="task-8">
+                    <input class="task-checkbox" id="task-8" type="checkbox">
+                    <span class="item-title">Turn on two-step sign-in for your email</span>
+                  </label>
+                  <span class="activity-location">On your phone</span>
+                </div>
+                <details class="device-guide">
+                  <summary>I use Gmail or another Google service</summary>
+                  <p>Open <a class="resource-link" href="https://myaccount.google.com/security" target="_blank" rel="noopener noreferrer">Google Security settings <span aria-hidden="true">↗</span></a>. Under <strong>How you sign in to Google</strong>, choose <strong>2-Step Verification</strong>, then follow the prompts to turn it on.</p>
+                </details>
+                <details class="device-guide">
+                  <summary>I use iCloud Mail or an Apple Account</summary>
+                  <p>On your iPhone, open <strong>Settings</strong>, tap your name, then <strong>Sign-In &amp; Security</strong> and <strong>Two-Factor Authentication</strong>. If it’s off, tap to turn it on and follow the prompts.</p>
+                </details>
+                <details class="device-guide">
+                  <summary>I use Outlook or Hotmail</summary>
+                  <p>Open <a class="resource-link" href="https://account.microsoft.com/security" target="_blank" rel="noopener noreferrer">Microsoft account security <span aria-hidden="true">↗</span></a>, sign in, and choose <strong>Advanced security options</strong>. Find <strong>Two-step verification</strong>, turn it on, and follow the prompts.</p>
+                </details>
+                <details class="device-guide">
+                  <summary>I use Yahoo Mail</summary>
+                  <p>Sign in to Yahoo, open your account image and <strong>Account info</strong>, then <strong>Account security</strong>. Turn on <strong>Two-step verification</strong> and follow the prompts.</p>
+                </details>
+                <details class="device-guide">
+                  <summary>I use another email service</summary>
+                  <p>Look in your account settings for <strong>Security</strong>, <strong>Sign-in</strong>, or <strong>Two-factor authentication</strong>. Ask for help if you can’t find it.</p>
+                </details>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <p class="safety-note">You can choose which activities to do. Ask us if you get stuck, and never show staff your passwords or confidential information.</p>
       </section>
     </main>
 
     <dialog class="completion-card" id="completion-card" aria-labelledby="completion-title">
-      <p class="eyebrow">[PLACEHOLDER: Completion label]</p>
-      <h2 id="completion-title">[PLACEHOLDER: Congratulations title]</h2>
-      <p class="card-copy">[PLACEHOLDER: Completion message goes here.]</p>
+      <p class="eyebrow">Checkup complete</p>
+      <h2 id="completion-title">Great work!</h2>
+      <p class="card-copy">You’ve checked off all eight activities. You can close this page or review any of the steps again.</p>
       <form method="dialog">
-        <button class="primary-button" type="submit">[PLACEHOLDER: Close button]</button>
+        <button class="primary-button" type="submit">Close</button>
       </form>
     </dialog>
   </body>
