@@ -15,6 +15,16 @@ let qrObjectUrl = "";
 let currentSectionIndex = 0;
 let showingTasks = false;
 
+document.querySelectorAll(".activity-list").forEach((activityList) => {
+  const phoneActivity = [...activityList.children].find((activity) => {
+    const location = activity.querySelector(".activity-location");
+    return location && location.textContent.trim() === "On your phone";
+  });
+  if (phoneActivity) {
+    activityList.prepend(phoneActivity);
+  }
+});
+
 function renderCurrentSection() {
   taskSections.forEach((section, index) => {
     const isCurrentSection = index === currentSectionIndex;
