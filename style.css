@@ -166,6 +166,19 @@ h2 {
   line-height: 1.65;
 }
 
+.activity-description {
+  font-style: italic;
+}
+
+.activity-card > .activity-note {
+  padding: 10px 12px;
+  border-left: 3px solid #d28a16;
+  border-radius: 4px;
+  background: #fff8e8;
+  color: #69440c;
+  font-weight: 600;
+}
+
 .activity-heading {
   display: flex;
   align-items: center;
