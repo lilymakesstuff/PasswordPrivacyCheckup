@@ -34,13 +34,14 @@
           <li class="checklist-item checklist-item--qr">
             <label class="item-label" for="task-1">
               <input class="task-checkbox" id="task-1" type="checkbox">
-              <span class="item-title">[PLACEHOLDER: Checklist item 1]</span>
+              <span class="item-title">Task 1</span>
             </label>
             <section class="qr-item" aria-labelledby="qr-item-title">
-              <h2 id="qr-item-title">Create a QR code for this item</h2>
-              <p class="qr-description"> When you're done with this task, you can paste the link to your checklist to genereate a QR code.</p>
+              <h2 id="qr-item-title">Consumer Reports Safety Checklist</h2>
+              <a class="resource-link" href="https://example.com/" target="_blank" rel="noopener noreferrer">[PLACEHOLDER: External resource 2] <span aria-hidden="true">↗</span></a>
+              <p class="qr-description"> If you want to keep your safety checklist, you can copy the link in the browser and paste it here.</p>
               <form class="qr-form" id="qr-form">
-                <label class="qr-label" for="qr-url">Paste the link in!</label>
+                <label class="qr-label" for="qr-url">Paste the link in after you're done and scan with your phone!</label>
                 <div class="qr-controls">
                   <input id="qr-url" name="url" type="url" inputmode="url" maxlength="2048" placeholder="https://example.com" required>
                   <button class="primary-button" type="submit">Generate QR code</button>
