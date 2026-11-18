@@ -38,6 +38,7 @@
         <div class="task-list">
           <section class="task-section" aria-labelledby="task-1-title">
             <h2 id="task-1-title">1. Account Safety Checks</h2>
+            <p class="section-description">Your major accounts need regular safety checks. This is usually as simple as confirming your email and address are current. Keeping this up to date helps prevent any safety issues!</p>
             <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
@@ -50,7 +51,16 @@
                 <p><a class="resource-link" href="https://securityplanner.consumerreports.org/" target="_blank" rel="noopener noreferrer">Consumer Reports Security Planner <span aria-hidden="true">↗</span></a></p>
                 <p class="activity-description">When you're done, if you would like to save your report, paste the link here and scan the code with your phone.</p>
                 <form class="qr-form" id="qr-form">
-                  <label class="qr-label" for="qr-url">Paste your report link</label>
+                  <div class="qr-label-row">
+                    <label class="qr-label" for="qr-url">Paste your report link</label>
+                    <span class="qr-help">
+                      <button class="qr-help-trigger" type="button" aria-label="Where to get your report link" aria-describedby="qr-help-tooltip">i</button>
+                      <span class="qr-tooltip" id="qr-help-tooltip" role="tooltip">
+                        <span>You can get the link here:</span>
+                        <img src="crsecplan.png" alt="Consumer Reports Security Planner share menu with the link icon outlined">
+                      </span>
+                    </span>
+                  </div>
                   <div class="qr-controls">
                     <input id="qr-url" name="url" type="url" inputmode="url" maxlength="2048" placeholder="Paste your report link here" required>
                     <button class="primary-button" type="submit">Generate QR code</button>
@@ -109,6 +119,7 @@
 
           <section class="task-section" aria-labelledby="task-2-title">
             <h2 id="task-2-title">2. Spam Protection</h2>
+            <p class="section-description">Everyone gets spam... but you can get less of it!</p>
             <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
@@ -161,6 +172,7 @@
 
           <section class="task-section" aria-labelledby="task-3-title">
             <h2 id="task-3-title">3. Removing Logged-in Devices</h2>
+            <p class="section-description">It's important to review where your email is being used, and update regularly.</p>
             <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">
@@ -218,6 +230,7 @@
 
           <section class="task-section" aria-labelledby="task-4-title">
             <h2 id="task-4-title">4. Setting up MFA on your email</h2>
+            <p class="section-description"><strong>What is MFA?</strong> Multi-factor authentication adds an extra layer of security to your account. It usually connects to your phone number or a security key.</p>
             <ul class="activity-list">
               <li class="activity-card">
                 <div class="activity-heading">

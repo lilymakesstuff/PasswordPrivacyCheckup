@@ -152,6 +152,13 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+.section-description {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .activity-list {
   display: grid;
   gap: 12px;
@@ -244,11 +251,72 @@ h2 {
   width: 100%;
 }
 
-.qr-label {
-  display: block;
+.qr-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
+}
+
+.qr-label {
   font-size: 14px;
   font-weight: 600;
+}
+
+.qr-help {
+  position: relative;
+  display: inline-flex;
+}
+
+.qr-help-trigger {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background: #eef0ff;
+  color: var(--color-accent);
+  cursor: help;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.qr-help-trigger:focus-visible {
+  outline: 3px solid #aeb9ff;
+  outline-offset: 3px;
+}
+
+.qr-tooltip {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  left: 0;
+  display: none;
+  width: min(420px, calc(100vw - 48px));
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(25 39 75 / 18%);
+  color: #17233c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.qr-help:hover .qr-tooltip,
+.qr-help:focus-within .qr-tooltip {
+  display: grid;
+}
+
+.qr-tooltip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 .qr-controls {
